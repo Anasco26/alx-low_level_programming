@@ -16,7 +16,7 @@ void print_times_table(int n)
 			for (j = 1; j <= n; j++)
 			{
 				_putchar((i * j) + '0');
-				if ((i * j) < (n * n))
+				if (j < n)
 				{
 					_putchar(',');
 					_putchar(' ');

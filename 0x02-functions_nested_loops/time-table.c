@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	print_times_table(12);
+	print_times_table(10);
 	return (0);
 }
