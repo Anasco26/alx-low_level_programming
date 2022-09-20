@@ -11,9 +11,11 @@ void puts_half(char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	if (i % 2 == 1){
+	if (i % 2 == 1)
+	{
 		j = (i - 1) / 2;
 		j += 1;
+	}
 	else
 		j = i / 2;
 	while (j < i)
