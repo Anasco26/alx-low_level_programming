@@ -2,25 +2,21 @@
 #include <stdio.h>
 
 /**
- * main - check the code for Holberton School students.
- * @a: an array of integers
- * @n: the number of elements to swap
- * Return: nothing.
+ * reverse_array - a function that reverse an array.
+ * @a: an input array
+ * @n: number of elements of array
+ * Return: Nothing
  */
 
-void print_array(int *a, int n)
+void reverse_array(int *a, int n)
 {
-	int i;
+	int i = 0;
+	int aux;
 
-	i = 0;
-	while (i < n)
+	while (i < n--)
 	{
-		if (i != 0)
-		{
-			printf(", ");
-		}
-		printf("%d", a[i]);
-		i++;
+		aux = a[i];
+		a[i++] = a[n];
+		a[n] = aux;
 	}
-	printf("\n");
 }
