@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		while (e[ei])
+		while (*e)
 		{
 			_putchar(*e);
 			e++;
