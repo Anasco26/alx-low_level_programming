@@ -89,6 +89,7 @@ int get_digit(char c)
 void get_prod(char *prod, char *mult, int digit, int zeroes)
 {
 	int mult_len, num, tens = 0;
+	char *e = "Error\n";
 
 	mult_len = find_len(mult) - 1;
 	mult += mult_len;
@@ -111,7 +112,11 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 	{
 		if (*mult < '0' || *mult > '9')
 		{
-			printf("Error\n");
+			while (*e)
+			{
+				_putchar(*e);
+				e++;
+			}
 			exit(98);
 		}
 
@@ -178,15 +183,15 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 int main(int argc, char *argv[])
 {
 	char *final_prod, *next_prod;
-	int size, i, digit, zeroes = 0 ei = 0;
-	char e[] = "Error\n";
+	int size, i, digit, zeroes = 0;
+	char *e = "Error\n";
 
 	if (argc != 3)
 	{
 		while (e[ei])
 		{
-			_putchar(e[ei]);
-			ei++;
+			_putchar(*e);
+			e++;
 		}
 		exit(98);
 	}
