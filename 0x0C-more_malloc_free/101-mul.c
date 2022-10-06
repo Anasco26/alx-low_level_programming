@@ -178,11 +178,16 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 int main(int argc, char *argv[])
 {
 	char *final_prod, *next_prod;
-	int size, i, digit, zeroes = 0;
+	int size, i, digit, zeroes = 0 ei = 0;
+	char e[] = "Error\n";
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		while (e[ei])
+		{
+			_putchar(e[ei]);
+			ei++;
+		}
 		exit(98);
 	}
 
@@ -192,7 +197,8 @@ int main(int argc, char *argv[])
 		argv[2] = iterate_zeroes(argv[2]);
 	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
 	{
-		printf("0\n");
+		_putchar('0');
+		_putchar('\n');
 		return (0);
 	}
 
