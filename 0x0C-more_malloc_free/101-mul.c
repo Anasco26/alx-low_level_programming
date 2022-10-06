@@ -1,6 +1,6 @@
-#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <main.h>
 
 int find_len(char *str);
 char *create_xarray(int size);
@@ -13,6 +13,7 @@ void add_nums(char *final_prod, char *next_prod, int next_len);
  * @str: The string to be measured.
  * Return: The length of the string.
  */
+
 int find_len(char *str)
 {
 	int len = 0;
@@ -31,20 +32,21 @@ int find_len(char *str)
  * function exits with a status of 98.
  * Return: A pointer to the array.
  */
+
 char *create_xarray(int size)
 {
 	char *array;
-	int index;
+	int i;
 
 	array = malloc(sizeof(char) * size);
 
 	if (array == NULL)
 		exit(98);
 
-	for (index = 0; index < (size - 1); index++)
-		array[index] = 'x';
+	for (i = 0; i < (size - 1); i++)
+		array[i] = 'x';
 
-	array[index] = '\0';
+	array[i] = '\0';
 
 	return (array);
 }
@@ -55,6 +57,7 @@ char *create_xarray(int size)
  * @str: The string of numbers to be iterate through.
  * Return: A pointer to the next non-zero element.
  */
+
 char *iterate_zeroes(char *str)
 {
 	while (*str && *str == '0')
@@ -70,6 +73,7 @@ char *iterate_zeroes(char *str)
  * exits with a status of 98.
  * Return: The converted int.
  */
+
 int get_digit(char c)
 {
 	int digit = c - '0';
@@ -92,6 +96,7 @@ int get_digit(char c)
  * Description: If mult contains a non-digit, the function
  * exits with a status value of 98.
  */
+
 void get_prod(char *prod, char *mult, int digit, int zeroes)
 {
 	int mult_len, num, tens = 0;
@@ -137,6 +142,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
  * @next_prod: The next product to be added.
  * @next_len: The length of next_prod.
  */
+
 void add_nums(char *final_prod, char *next_prod, int next_len)
 {
 	int num, tens = 0;
@@ -181,10 +187,11 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
  * contains non-digits, the function exits with a status of 98.
  * Return: Always 0.
  */
+
 int main(int argc, char *argv[])
 {
 	char *final_prod, *next_prod;
-	int size, index, digit, zeroes = 0;
+	int size, i, digit, zeroes = 0;
 
 	if (argc != 3)
 	{
@@ -206,16 +213,16 @@ int main(int argc, char *argv[])
 	final_prod = create_xarray(size + 1);
 	next_prod = create_xarray(size + 1);
 
-	for (index = find_len(argv[2]) - 1; index >= 0; index--)
+	for (i = find_len(argv[2]) - 1; i >= 0; i--)
 	{
-		digit = get_digit(*(argv[2] + index));
+		digit = get_digit(*(argv[2] + i));
 		get_prod(next_prod, argv[1], digit, zeroes++);
 		add_nums(final_prod, next_prod, size - 1);
 	}
-	for (index = 0; final_prod[index]; index++)
+	for (i = 0; final_prod[i]; i++)
 	{
-		if (final_prod[index] != 'x')
-			_putchar(final_prod[index]);
+		if (final_prod[i] != 'x')
+			_putchar(final_prod[i]);
 	}
 	_putchar('\n');
 
