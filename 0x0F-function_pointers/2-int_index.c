@@ -1,7 +1,7 @@
 #include "function_pointers.h"
 
 /**
- * int_i - Searches for an integer in an array of integers.
+ * int_index - Searches for an integer in an array of integers.
  * @array: The array of integers.
  * @size: The size of the array.
  * @cmp: A pointer to the function to be used to compare values.
@@ -9,7 +9,7 @@
  * Otherwise - The i of the first element for which
  * the cmp function does not return 0.
  */
-int int_i(int *array, int size, int (*cmp)(int))
+int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
