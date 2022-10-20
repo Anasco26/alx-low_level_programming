@@ -11,14 +11,13 @@
 
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new;
+	list_t *new, *last;
 	int len = 0;
 
 	new = malloc(sizeof(list_t));
-
 	if (new == NULL)
 		return (NULL);
-	new->str = strdup(str);
+
 	if (str == NULL)
 	{
 		free(new);
@@ -26,18 +25,20 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 	while (str[len])
 		len++;
-
+	
+	new->str = strdup(str);
 	new->len = len;
 	new->next = NULL;
-	
-	/* Traverse to the last node */
+
+	/* Traversing through list */
 	if (*head == NULL)
 		*head = new;
-	else
+	else 
 	{
-		while ((*head)->next)
-			*head = (*head)->next;
-		(*head)->next = new;
+		last = *head;
+		while (last->next)
+			last = last->next;
+		last->next = new;
 	}
 
 	return (*head);
