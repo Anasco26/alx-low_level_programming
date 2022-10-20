@@ -25,15 +25,14 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 	while (str[len])
 		len++;
-	
 	new->str = strdup(str);
 	new->len = len;
 	new->next = NULL;
-
+	
 	/* Traversing through list */
 	if (*head == NULL)
 		*head = new;
-	else 
+	else
 	{
 		last = *head;
 		while (last->next)
